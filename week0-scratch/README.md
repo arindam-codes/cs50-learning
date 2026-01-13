@@ -6,8 +6,9 @@ This folder contains my Week 0 Scratch project for **CS50x**.
 Scratch project (online):  
 👉 [Project](https://scratch.mit.edu/projects/1264731077)
 
-## 📄 File
-- `cat sees everything.sb3 ` – Submitted Scratch project file
+## ✅ Status
+- Submitted to CS50x
+- Passed all check50 requirements (8/8)
 
 ## 📝 Notes
 This project demonstrates:
