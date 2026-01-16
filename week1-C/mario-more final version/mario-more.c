@@ -4,10 +4,6 @@
 void print_char(int row);
 void mario();
 
-// now my target is to make it to re-prompt again if user doesn't give
-// positive integer btw 1 - 8 as input
-// thinking of using do while loop
-
 // calling mario function
 int main(void)
 {
