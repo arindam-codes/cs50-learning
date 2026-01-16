@@ -44,7 +44,6 @@ void mario()
 
         printf("\n");
     }
-    printf("\n");
 }
 
 // for printing char(#)
