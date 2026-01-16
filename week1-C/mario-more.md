@@ -1,5 +1,5 @@
-##  How I attempted Mario Problem of CS50 Week 1 
-# After completing the problem, i reviewed the official walkthrough to compare design choices.
+#  How I attempted Mario Problem of CS50 Week 1 
+## After completing the problem, i reviewed the official walkthrough to compare design choices.
 
 [Mario v1](https://github.com/arindam-codes/cs50-learning/tree/main/week1-C/mario-more%20v1)
 
