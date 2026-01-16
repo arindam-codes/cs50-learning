@@ -51,9 +51,10 @@ This abstraction made the main logic much clearer.
 ---
 
 ## 📌 Example Output (height = 4)
-
+```
 Height: 4
    #  #
   ##  ##
  ###  ###
 ####  ####
+```
