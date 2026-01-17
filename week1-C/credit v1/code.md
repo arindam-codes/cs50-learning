@@ -1,4 +1,4 @@
-## I did upto this but i was trying to learn cs50 manual io the [strlen](https://manual.cs50.io/3/strlen) 
+## I did credit problem upto this but i was trying to learn cs50 manual io the [strlen](https://manual.cs50.io/3/strlen) 
 
 ```
 #include <cs50.h>
