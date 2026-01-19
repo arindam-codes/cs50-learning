@@ -12,24 +12,60 @@ While solving the **CS50 Credit** problem, I encountered this line:
 int digit = s[i] - '0';
 ```
 
-At first, it looked like a random trick.
+At first, it looked like a trick.
 
-But digging into *why* this works led me down a rabbit hole of:
+But questioning *why* it works led me into understanding:
 
 * Binary representation
 * ASCII encoding
 * `char` vs `int`
-* Compiler vs CPU responsibilities
+* Compiler vs CPU roles
 * How `printf("%c")` and `printf("%d")` work
-* How keyboards send input to programs
+* How keyboard input becomes numbers
 
-This repository documents that understanding.
+This repository documents that journey.
+
+---
+
+## ✍️ Handwritten Exploration (Original Notes)
+
+Before structuring anything digitally, I worked through this **by hand**, breaking the idea down to:
+
+* bits
+* ASCII tables
+* memory
+* interpretation vs storage
+
+Below are **photos of my handwritten notes** taken during that process.
+
+> These notes show the raw reasoning that led to the explanations in this repository.
+
+### 📓 Notes – Page 1
+
+![Handwritten notes – page 1](notes/page1.jpg)
+
+### 📓 Notes – Page 2
+
+![Handwritten notes – page 2](notes/page2.jpg)
+
+### 📓 Notes – Page 3
+
+![Handwritten notes – page 3](notes/page3.jpg)
+
+📁 **Folder structure used:**
+
+```
+notes/
+├── page1.jpg
+├── page2.jpg
+└── page3.jpg
+```
 
 ---
 
 ## 🧩 The Core Insight
 
-Computers **do not store characters or numbers**.
+Computers do **not** store characters or numbers.
 
 They store **bits**.
 
@@ -37,7 +73,7 @@ They store **bits**.
 01000001
 ```
 
-That same bit pattern can mean:
+That same bit pattern can represent:
 
 | Interpretation   | Meaning |
 | ---------------- | ------- |
@@ -65,13 +101,7 @@ That same bit pattern can mean:
 '7' → 55 → 00110111
 ```
 
-So when a user types `7` on the keyboard, the program receives:
-
-```
-'7' = 00110111
-```
-
-❌ NOT `00000111`
+When a user types `7`, the program receives `'7'`, not the number `7`.
 
 ---
 
@@ -90,64 +120,49 @@ Binary math:
 digit = 00000111  (7)
 ```
 
-This converts a **character digit** into a **numeric value**.
-
-This is exactly how:
-
-* `atoi`
-* `scanf`
-* parsers
-* interpreters
-
-work internally.
+This converts **character digits** into **numeric values**.
 
 ---
 
-## 🧠 `char` Is Not a Character
-
-In C:
+## 🧠 `char` Is Just a Small Integer
 
 ```c
 char a = 'A';
 ```
 
-What is stored in memory?
+Stored in memory as:
 
 ```
 01000001
 ```
 
-That is **65**.
-
-* `%c` → prints `'A'`
+* `%c` → prints `A`
 * `%d` → prints `65`
 
-Same bits. Different interpretation.
+Same bits, different interpretation.
 
 ---
 
 ## 🛠 Who Knows What?
 
-| Component                     | Knows                  |
-| ----------------------------- | ---------------------- |
-| CPU                           | Only binary            |
-| RAM                           | Only binary            |
-| Compiler                      | ASCII, types, sizes    |
-| C standard library (`printf`) | How to interpret bits  |
-| Terminal                      | How to draw characters |
-| Human                         | Meaning                |
-
-The compiler is the **translator**, not the thinker.
+| Component            | Responsibility                              |
+| -------------------- | ------------------------------------------- |
+| CPU                  | Executes binary instructions                |
+| Memory               | Stores raw bits                             |
+| Compiler             | Translates source code, knows ASCII & types |
+| C library (`printf`) | Interprets bits for output                  |
+| Terminal             | Renders characters                          |
+| Human                | Assigns meaning                             |
 
 ---
 
-## ⌨️ Keyboard → Screen Pipeline
+## ⌨️ Input → Output Pipeline
 
 1. Keyboard sends scan code
-2. OS converts it to ASCII
+2. OS converts to ASCII
 3. Program receives characters
-4. Code converts characters to numbers
-5. `printf` interprets bits based on format
+4. Code converts characters → numbers
+5. Output functions interpret bits
 
 ---
 
@@ -155,10 +170,9 @@ The compiler is the **translator**, not the thinker.
 
 * `'7'` ≠ `7`
 * `"7"` ≠ `'7'`
-* `char` is a **1-byte integer**
-* Computers never see letters
+* `char` is a 1-byte integer
+* Computers never “see” characters
 * Interpretation creates meaning
-* One line of C can reveal the whole stack
 
 ---
 
@@ -168,17 +182,16 @@ Understanding this removes fear of:
 
 * pointers
 * segmentation faults
-* buffer overflows
-* compilers
+* parsing logic
 * low-level systems
 
-This is where **real computer science** starts.
+This is where **real computer science thinking begins**.
 
 ---
 
 ## ✨ Origin
 
-All of this came from deeply questioning:
+This entire exploration started from deeply questioning:
 
 ```c
 int digit = s[i] - '0';
@@ -186,12 +199,13 @@ int digit = s[i] - '0';
 
 ---
 
-## 🧠 Author
+## 🧠 Author’s Note
 
-Learning C the hard way.
-One bit at a time.
+This repository reflects **my own reasoning process**, starting from handwritten notes and moving to structured documentation.
+
+Tools were used only to **organize and present** ideas already understood.
 
 ---
 
 > *“The computer doesn’t know characters.
-> It only knows voltage.”*
+> It only knows bits.”*
