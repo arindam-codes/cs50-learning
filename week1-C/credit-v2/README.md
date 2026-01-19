@@ -46,7 +46,7 @@ Below are **photos of my handwritten notes** taken during that process.
 
 ### 📓 Notes – Page 2
 
-![Handwritten notes – page 2](notes/Screenshot from 2026-01-19 12-47-33.png)
+![Handwritten notes – page 2](notes/page2.png)
 
 ### 📓 Notes – Page 3
 
