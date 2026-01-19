@@ -24,7 +24,7 @@ Given a credit card number, the program:
 
 ---
 
-[🎥 Demo video YT](https://youtu.be/DQZhNFFe_hk)
+[🎥 Demo video YT](https://youtube.com/shorts/XuE03WMiCvU)
 
 ---
 
