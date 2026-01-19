@@ -57,8 +57,8 @@ Below are **photos of my handwritten notes** taken during that process.
 ```
 notes/
 ├── page1.jpg
-├── page2.jpg
-└── page3.jpg
+├── page2.png
+└── page3.png
 ```
 
 ---
