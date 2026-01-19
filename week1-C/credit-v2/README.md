@@ -50,7 +50,7 @@ Below are **photos of my handwritten notes** taken during that process.
 
 ### 📓 Notes – Page 3
 
-![Handwritten notes – page 3](notes/page3.jpg)
+![Handwritten notes – page 3](notes/page3.png)
 
 📁 **Folder structure used:**
 
