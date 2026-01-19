@@ -24,6 +24,10 @@ Given a credit card number, the program:
 
 ---
 
+[🎥 Demo video YT](https://youtu.be/DQZhNFFe_hk)
+
+---
+
 ## 🧠 Key Concepts Used
 
 * `get_long` for safe numeric input
