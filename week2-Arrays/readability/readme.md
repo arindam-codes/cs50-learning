@@ -1,6 +1,6 @@
 ---
 ## Readability Score Calculator
-### This function calculates a readability index based on L (average letters per 100 words) and S (average sentences per 100 words), using the Coleman-Liau formula.
+This function calculates a readability index based on L (average letters per 100 words) and S (average sentences per 100 words), using the Coleman-Liau formula.
 --- 
 ```
 int get_index(int l_number, int w_number, int s_number)
@@ -13,7 +13,7 @@ int get_index(int l_number, int w_number, int s_number)
 }
 ```
 ---
-### 🐛 CS50 Grading Issue (4 vs 5)
+## 🐛 CS50 Grading Issue (4 vs 5)
 Test case: "Harry Potter was a highly unusual boy in many ways..."
 My output: 4
 Expected: 5
