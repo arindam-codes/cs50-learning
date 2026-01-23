@@ -13,16 +13,20 @@
 // so 32 to indicate a space char]]{done word}
 
 //sentences
-// {sentences}only 3 marks ? ! and . to distinct sentences
-// i can include caps too to distinct a sentence{sentences}
+// {done sentences}only 3 marks ? ! and . to distinct sentences
+// i can include caps too to distinct a sentence{done sentences}
+// index = 0.0588 * L - 0.296 * S - 15.8
 
 #include <cs50.h>
+#include <math.h>
 #include <stdio.h>
 #include <string.h>
 // defining functions
 int get_numbers_of_letter(string passage);
 int get_numbers_of_words(string passage);
 int get_number_of_sentences(string passage);
+double get_index(double l_number, double w_number, double s_number);
+
 
 int main(void)
 {
@@ -30,8 +34,20 @@ int main(void)
     int l_number = get_numbers_of_letter(passage);
     int w_number = get_numbers_of_words(passage);
     int s_number = get_number_of_sentences(passage);
-
-    printf("Letters:   %i\nWords:     %i\nSentences: %i\n", l_number, w_number, s_number);
+    int index = get_index(l_number, w_number, s_number);
+    // printing the grade
+    if (index < 1)
+    {
+        printf("Before Grade 1\n");
+    }
+    else if (index > 16)
+    {
+        printf("Grade 16+\n");
+    }
+    else
+    {
+        printf("%i\n", index);
+    }
 }
 
 // getter method to get number of letters
@@ -79,4 +95,14 @@ int get_number_of_sentences(string passage)
         }
     }
     return number_of_sentences;
+}
+
+// Calculating index
+double get_index(double l_number, double w_number, double s_number)
+{
+    double L, S, index;
+    L = (l_number / w_number) * 100;
+    S = (s_number / w_number) * 100;
+    index = 0.0588 * L - 0.296 * S - 15.8;
+    return round(index);
 }
