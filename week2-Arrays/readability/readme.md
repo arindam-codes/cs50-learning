@@ -25,3 +25,11 @@ index = 4.8... → should round to 5 ✓
 ```
 so i used round function which Requires #include <math.h>
 ---
+```
+Float vs Int Precision
+Type	Bytes	Sign	Exponent	Precision	Max Integer
+float	4	1 bit	8 bits	23 bits	~16M
+double	8	1 bit	11 bits	52 bits	~9 quadrillion
+int	4	1 bit	-	31 bits	~2B
+```
+Float trades integer range for decimal precision 📏
