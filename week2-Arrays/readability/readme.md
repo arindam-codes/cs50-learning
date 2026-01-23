@@ -27,9 +27,23 @@ so i used round function which Requires #include <math.h>
 ---
 ```
 Float vs Int Precision
-Type	Bytes	Sign	Exponent	Precision	Max Integer
-float	4	1 bit	8 bits	23 bits	~16M
-double	8	1 bit	11 bits	52 bits	~9 quadrillion
-int	4	1 bit	-	31 bits	~2B
-```
+
+| Type   | Bytes | Sign  | Exponent | Precision | Max Integer    |
+| ------ | ----- | ----- | -------- | --------- | -------------- |
+| float  | 4     | 1 bit | 8 bits   | 23 bits   | ~16M           |
+| double | 8     | 1 bit | 11 bits  | 52 bits   | ~9 quadrillion |
+| int    | 4     | 1 bit | -        | 31 bits   | ~2B            |
+
 Float trades integer range for decimal precision 📏
+---
+```
+# Text Processing Pro Tip
+```
+// Skip ASCII manual checks → use ctype.h
+if (isalpha(c)) letter_count++;
+```
+---
+I had already learned the remaining concepts while completing the Credit problem, so I was able to directly apply that knowledge here without relearning the theory.
+I learned the core concepts while working on the Credit problem and fully mastered them through this implementation.
+
+
