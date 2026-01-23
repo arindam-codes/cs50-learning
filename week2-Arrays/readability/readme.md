@@ -1,6 +1,6 @@
 ---
 ## Readability Score Calculator
-# This function calculates a readability index based on L (average letters per 100 words) and S (average sentences per 100 words), using the Coleman-Liau formula.
+This function calculates a readability index based on L (average letters per 100 words) and S (average sentences per 100 words), using the Coleman-Liau formula.
 --- 
 ```
 int get_index(int l_number, int w_number, int s_number)
