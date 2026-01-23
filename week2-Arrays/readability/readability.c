@@ -20,20 +20,21 @@
 #include <cs50.h>
 #include <math.h>
 #include <stdio.h>
+#include <ctype.h>
 #include <string.h>
 // defining functions
-int get_numbers_of_letter(string passage);
-int get_numbers_of_words(string passage);
-int get_number_of_sentences(string passage);
+int count_letters(string passage);
+int count_words(string passage);
+int count_sentences(string passage);
 double get_index(double l_number, double w_number, double s_number);
 
 
 int main(void)
 {
     string passage = get_string("Text: ");
-    int l_number = get_numbers_of_letter(passage);
-    int w_number = get_numbers_of_words(passage);
-    int s_number = get_number_of_sentences(passage);
+    int l_number = count_letters(passage);
+    int w_number = count_words(passage);
+    int s_number = count_sentences(passage);
     int index = get_index(l_number, w_number, s_number);
     // printing the grade
     if (index < 1)
@@ -46,19 +47,20 @@ int main(void)
     }
     else
     {
-        printf("%i\n", index);
+        printf("Grade %i\n", index);
     }
 }
 
 // getter method to get number of letters
-int get_numbers_of_letter(string passage)
+int count_letters(string passage)
 {
     int number_of_letter = 0;
     for (int i = 0, n = strlen(passage); i < n; i++)
     {
-        //anything from 65 to 90 and 97 to 122
-        int digit = passage[i];
-        if ((digit >= 65 && digit <= 90) || (digit >= 97 && digit <= 122))
+        // usng isaplha() funtion to confirm where it is a char or not
+        // thought we can do it using ascii numeric values if we want
+        // but its more low level than the problem asking for
+        if (isalpha(passage[i]))
         {
             number_of_letter ++;
         }
@@ -67,7 +69,7 @@ int get_numbers_of_letter(string passage)
 }
 
 // words
-int get_numbers_of_words(string passage)
+int count_words(string passage)
 {
     // number of words = number of spaces + 1
     int number_of_words = 1;
@@ -83,7 +85,7 @@ int get_numbers_of_words(string passage)
 }
 
 // sentences
-int get_number_of_sentences(string passage)
+int count_sentences(string passage)
 {
     int number_of_sentences = 0;
     for (int i = 0, n = strlen(passage); i < n; i++)
