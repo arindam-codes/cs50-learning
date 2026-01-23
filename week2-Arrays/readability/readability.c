@@ -1,4 +1,3 @@
-// words
 // L = (no of letter in the whole passage / no of word in the whole passage ) * 100
 // S = (no of sentence in the whole passage / no of words in the whole passage) * 100
 
@@ -9,13 +8,13 @@
 // cost is theta(n) so not a bad deal]] {done}
 
 //word
-// {word} [[space is only the thing which seprates two words
+// {done word} [[space is only the thing which seprates two words
 // apostrophe is not meant to be counted as a seperator of two words
-// so 32 to indicate a space char]]{word}
+// so 32 to indicate a space char]]{done word}
 
 //sentences
-// only 3 marks ? ! and . to distinct sentences
-// i can include caps too to distinct a sentence
+// {sentences}only 3 marks ? ! and . to distinct sentences
+// i can include caps too to distinct a sentence{sentences}
 
 #include <cs50.h>
 #include <stdio.h>
@@ -23,14 +22,16 @@
 // defining functions
 int get_numbers_of_letter(string passage);
 int get_numbers_of_words(string passage);
-
+int get_number_of_sentences(string passage);
 
 int main(void)
 {
     string passage = get_string("Text: ");
-    int number = get_numbers_of_letter(passage);
+    int l_number = get_numbers_of_letter(passage);
     int w_number = get_numbers_of_words(passage);
-    printf("Letters: %i\nWords:   %i\n", number, w_number);
+    int s_number = get_number_of_sentences(passage);
+
+    printf("Letters:   %i\nWords:     %i\nSentences: %i\n", l_number, w_number, s_number);
 }
 
 // getter method to get number of letters
@@ -56,13 +57,26 @@ int get_numbers_of_words(string passage)
     int number_of_words = 1;
     for (int i = 0, n = strlen(passage); i < n; i++)
     {
-        // numeric 32 represents space char
         // count the number of space char
-
         if (passage[i] == ' ')
         {
             number_of_words ++;
         }
     }
     return number_of_words;
+}
+
+// sentences
+int get_number_of_sentences(string passage)
+{
+    int number_of_sentences = 0;
+    for (int i = 0, n = strlen(passage); i < n; i++)
+    {
+        char end_indctr = passage[i];
+        if (end_indctr == '?' || end_indctr == '!' || end_indctr == '.')
+        {
+            number_of_sentences ++;
+        }
+    }
+    return number_of_sentences;
 }
