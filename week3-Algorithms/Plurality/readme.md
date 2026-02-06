@@ -6,36 +6,24 @@
 
 This program implements a **plurality voting system**, where each voter votes for one candidate, and the candidate(s) with the highest number of votes win the election.
 
-The program takes candidate names as command-line arguments, collects votes from users, counts them, and prints the winner (or winners in case of a tie).
-
-This project is part of **CS50** and demonstrates:
-
-* Structs
-* Arrays
-* Strings
-* Command-line arguments
-* Functions and loops
+The program takes candidate names as command-line arguments, collects votes from users, counts them efficiently, and prints the winner (or winners in case of a tie).
 
 ---
 
-## How the Program Works
+## What I Learned from This Project
 
-### 1. Command-Line Arguments
+While working on this program, I learned several important programming concepts:
 
-The program is run with candidate names provided as arguments:
-
-```
-./plurality Alice Bob Charlie
-```
-
-* Each argument becomes a candidate.
-* The maximum number of candidates allowed is **9**.
+* **How to define new data types** using `struct`
+* **How to use custom data types** to store related information together (candidate name and vote count)
+* **How to keep track of variables** (such as vote counts) and **compare them with other values** using a tracked variable
+* How to design logic that avoids unnecessary work and keeps the program efficient
 
 ---
 
-### 2. Data Structure
+## Data Structure Design
 
-Each candidate is represented using a struct:
+Each candidate is represented using a custom data type:
 
 ```c
 typedef struct
@@ -45,47 +33,36 @@ typedef struct
 } candidate;
 ```
 
-* `name` stores the candidate’s name
-* `votes` stores the number of votes received
+This allowed me to:
 
-All candidates are stored in an array called `candidates`.
-
----
-
-### 3. Voting Process
-
-* The program asks for the **number of voters**
-* Each voter enters the name of a candidate
-* The `vote` function:
-
-  * Checks if the name matches a valid candidate
-  * Increments that candidate’s vote count
-  * Rejects invalid votes
+* Store a candidate’s name and vote count together
+* Access and update vote counts easily
+* Compare vote counts while determining the winner
 
 ---
 
-### 4. Determining the Winner
+## Program Design and Efficiency
 
-After all votes are cast:
+* Votes are counted using a **single pass** through the candidates list
+* The winner is determined using a tracked variable that stores the index of the current maximum vote count
+* The program avoids nested loops over voters and candidates wherever possible
 
-* The program finds the **maximum number of votes**
-* Any candidate who has that number of votes is printed
-* This allows for **ties**, meaning multiple winners can be printed
+Because of this design:
+
+* Vote counting runs in **Θ(n)** time relative to the number of candidates
+* Winner determination also runs in **Θ(n)** time
+* The program remains efficient even as the number of candidates increases
 
 ---
 
-## Functions Explained
+## How the Program Works
 
-### `bool vote(string name)`
-
-* Compares the input name with all candidates
-* Increases vote count if a match is found
-* Returns `true` for a valid vote, `false` otherwise
-
-### `void print_winner(void)`
-
-* Finds the highest vote count
-* Prints the name(s) of the candidate(s) with the most votes
+1. Candidate names are provided as command-line arguments
+2. The program initializes all vote counts to zero
+3. Voters enter their votes one by one
+4. Each vote is validated and counted
+5. The program tracks the maximum vote count
+6. The winner(s) are printed
 
 ---
 
@@ -102,27 +79,20 @@ Alice
 
 ---
 
-## Error Handling
-
-* If no candidates are provided, the program exits with a usage message
-* If the number of candidates exceeds 9, the program exits with an error
-* Invalid votes are rejected with a warning message
-
----
-
 ## Key Concepts Used
 
-* Structs
+* Structs and custom data types
 * Arrays
-* String comparison (`strcmp`)
-* Command-line arguments (`argc`, `argv`)
-* Loops and conditionals
-* User input with CS50 library
+* Variable tracking and comparison
+* Efficient loop design
+* String comparison with `strcmp`
+* Command-line arguments
+* Time complexity analysis (Θ(n))
 
 ---
 
 ## Conclusion
 
-This program correctly simulates a plurality election by collecting votes, validating them, counting totals, and printing the correct winner(s). It follows the rules of plurality voting and handles ties properly.
+This project helped me understand how to design programs that are both **logically correct** and **efficient**. By defining my own data types and carefully tracking variables, I was able to build a clean solution with **Θ(n) time complexity**.
 
 ---
